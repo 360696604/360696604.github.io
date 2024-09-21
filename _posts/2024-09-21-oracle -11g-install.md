@@ -433,7 +433,7 @@ OPatch succeeded.
 之后就可以正常使用，netca DBCA创建数据库即可
 
 
-#### 9.参考
+#### 14.参考
 ```shell
 MOS:Release Schedule of Current Database Releases (Doc ID 742060.1)
 MOS:Requirements for Installing Oracle Database/Client 11.2.0.4 on OL8 or RHEL8 64-bit (x86-64) (Doc ID 2988626.1)
