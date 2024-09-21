@@ -1,9 +1,9 @@
 # Site settings
-title: DBA Blog
-SEOTitle: DBA的博客 | DBA Blog
+title: DBA's Blog
+SEOTitle: DBA's的博客 | DBA's Blog
 header-img: img/home-bg.jpg
 email: 360696604@qq.com
-description: "这里是 @DBA 的个人博客 | 乾坤未定，你我皆是黑马。闹钟一响，你我皆是牛马!"
+description: "这里是 @DBA's 的个人博客 | 乾坤未定，你我皆是黑马。闹钟一响，你我皆是牛马!"
 keyword: "地精"
 url: "https://360696604.github.io" # your host, for absolute URL
 baseurl: "" # for example, '/blog' if your blog hosted on 'host/blog'
