@@ -1,9 +1,9 @@
 # Site settings
-title: DJ Blog
-SEOTitle: 地精的博客 | DJ Blog
+title: DBA Blog
+SEOTitle: DBA的博客 | DBA Blog
 header-img: img/home-bg.jpg
-email: admin@admin.com
-description: "这里是 @地精 的个人博客 | 乾坤未定，你我皆是黑马。闹钟一响，你我皆是牛马!"
+email: 360696604@qq.com
+description: "这里是 @DBA 的个人博客 | 乾坤未定，你我皆是黑马。闹钟一响，你我皆是牛马!"
 keyword: "地精"
 url: "https://360696604.github.io" # your host, for absolute URL
 baseurl: "" # for example, '/blog' if your blog hosted on 'host/blog'
@@ -13,11 +13,11 @@ future: true
 
 # SNS settings
 RSS: false
-weibo_username: huxpro
-zhihu_username: huxpro
-github_username: huxpro
-twitter_username: huxpro
-#facebook_username:  huxpro
+weibo_username: 360696604
+zhihu_username: 360696604
+github_username: 360696604
+twitter_username: 360696604
+#facebook_username:  360696604
 #linkedin_username:  firstname-lastname-idxxxx
 
 # Build settings
