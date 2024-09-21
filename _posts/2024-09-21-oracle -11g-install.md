@@ -1,6 +1,6 @@
 ---
 layout:       post
-title:        "oracle 11g 安装教程"
+title:        "CentOS8 安装 oracle 11g 教程"
 author:       "GaoYang"
 header-style: text
 catalog:      true
