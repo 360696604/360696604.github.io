@@ -180,7 +180,6 @@ yum makecache
 ```shell
 yum install bc binutils compat-openssl10 elfutils-libelf glibc glibc-devel ksh libaio libaio-devel libXrender libX11 libXau libXi libXtst libgcc libnsl libstdc++ libxcb libibverbs make policycoreutils policycoreutils-python-utils smartmontools sysstat -y
 ```
-![alt text](image.png)
 
 #### 8.配置用户环境变量
 ```shell
