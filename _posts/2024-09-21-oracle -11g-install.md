@@ -40,7 +40,7 @@ EOF
 source /etc/profile
 ```
 
-#### 2.创建用户、参数配置
+#### 3.创建用户、参数配置
 ```shell
 #create user
 /usr/sbin/groupadd oinstall
@@ -87,7 +87,7 @@ fi
 EOF
 ```
 
-#### 3.禁用Transparent HugePages
+#### 4.禁用Transparent HugePages
 ```shell
 cd /etc/default/
 cp grub grub.bak
@@ -157,7 +157,7 @@ done
 always madvise [never]
 ```
 
-#### 4.创建目录，上传软件
+#### 5.创建目录，上传软件
 ```shell
 mkdir /soft
 chmod -R 777 /soft/--上传软件包到/soft目录下--包括OPATCH：p6880880_112000_Linux-x86-64--补丁包：p33477185_112040_Linux-x86-64、p33991024_11204220118_Generic--DB安装包：p13390677_112040_Linux-x86-64_1of7、p13390677_112040_Linux-x86-64_2of7
@@ -166,14 +166,14 @@ chown -R oracle:oinstall /u01
 ```
 
 
-#### 5.关闭SELINUX和防火墙
+#### 6.关闭SELINUX和防火墙
 ```shell
 sed -i "s/SELINUX=enforcing/SELINUX=disabled/g" /etc/selinux/config
 setenforce 0
 systemctl disable firewalld && systemctl stop firewalld
 ```
 
-#### 6.配置YUM源
+#### 7.配置YUM源
 ```shell
 mount /dev/cdrom /mnt
 rm -rf /etc/yum.repos.d/*.repo
@@ -192,12 +192,12 @@ EOF
 yum makecache
 ```
 
-#### 7.安装软件包
+#### 8.安装软件包
 ```shell
 yum install bc binutils compat-openssl10 elfutils-libelf glibc glibc-devel ksh libaio libaio-devel libXrender libX11 libXau libXi libXtst libgcc libnsl libstdc++ libxcb libibverbs make policycoreutils policycoreutils-python-utils smartmontools sysstat -y
 ```
 
-#### 8.配置用户环境变量
+#### 9.配置用户环境变量
 ```shell
 cat >> /home/oracle/.bash_profile <<EOF
 export TMP=/tmp
@@ -216,7 +216,7 @@ umask=022
 EOF
 ```
 
-#### 9.解压DB软件
+#### 10.解压DB软件
 ```shell
 su - oracle
 cd /soft
@@ -224,7 +224,7 @@ unzip p13390677_112040_Linux-x86-64_1of7.zip
 unzip p13390677_112040_Linux-x86-64_2of7.zip
 ```
 
-#### 10.创建静默安装文件
+#### 11.创建静默安装文件
 ```shell
 cat >> /soft/db_install.rsp <<EOF
 #软件版本信息
@@ -260,7 +260,7 @@ oracle.installer.autoupdates.option=SKIP_UPDATES
 EOF
 ```
 
-#### 11.创建oraInst.loc文件
+#### 12.创建oraInst.loc文件
 以下以root用户执行
 ```shell
 cat >> /etc/oraInst.loc <<EOF
@@ -271,7 +271,7 @@ chown oracle:oinstall /etc/oraInst.loc
 chmod 664 /etc/oraInst.loc
 ```
 
-#### 12.开始安装
+#### 13.开始安装
 采用静默安装
 ```shell
 su - oracle
@@ -303,7 +303,7 @@ Successfully Setup Software.
 其实看了官方文档，多数是己知BUG，安装的过程中只能忽略，安装完再打补丁修复
 
 
-#### 13.解压opatch安装补丁
+#### 14.解压opatch安装补丁
 ```shell
 su - oracle
 cd $ORACLE_HOME
@@ -448,7 +448,7 @@ OPatch succeeded.
 之后就可以正常使用，netca DBCA创建数据库即可
 
 
-#### 14.参考
+#### 15.参考
 ```shell
 MOS:Release Schedule of Current Database Releases (Doc ID 742060.1)
 MOS:Requirements for Installing Oracle Database/Client 11.2.0.4 on OL8 or RHEL8 64-bit (x86-64) (Doc ID 2988626.1)
