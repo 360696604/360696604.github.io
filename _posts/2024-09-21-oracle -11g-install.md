@@ -24,6 +24,22 @@ hostnamectl set-hostname oracle
 echo "192.168.56.200 oracle" >>/etc/hosts
 ```
 
+#### 2.安装JAVA
+```shell
+tar -zxvf jdk-8u191-linux-x64.tar.gz -C /usr/local
+
+#添加JDK环境变量
+cat >> /etc/profile <<EOF
+#JAVA
+export JAVA_HOME=/usr/local/jdk1.8.0_191
+export JRE_HOME=${JAVA_HOME}/jre
+export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
+export PATH=${JAVA_HOME}/bin:$PATH
+EOF
+
+source /etc/profile
+```
+
 #### 2.创建用户、参数配置
 ```shell
 #create user
@@ -190,7 +206,7 @@ export TMPDIR=$TMP
 export ORACLE_UNQNAME=oracle
 export ORACLE_SID=orcl
 export ORACLE_BASE=/u01/app/oracle
-export ORACLE_HOME=/u01/app/oracle/product/11.2.0/dbhome_1
+export ORACLE_HOME=/u01/app/oracle/product/11.2.0/db_1
 export ORACLE_TERM=xterm
 export NLS_DATE_FORMAT="yyyy-mm-dd HH24:MI:SS"
 export NLS_LANG=AMERICAN_AMERICA.ZHS16GBK
@@ -224,7 +240,7 @@ INVENTORY_LOCATION=/u01/app/oraInventory
 #oracle运行语言环境，英文和简体中文
 SELECTED_LANGUAGES=en,zh_CN
 #oracle安装目录
-ORACLE_HOME=/u01/app/oracle/product/11.2.0/dbhome_1
+ORACLE_HOME=/u01/app/oracle/product/11.2.0/db_1
 #oracle基础目录
 ORACLE_BASE=/u01/app/oracle
 #安装版本类型：企业版
@@ -277,7 +293,7 @@ The installation of Oracle Database 11g was successful.
 Please check '/u01/oracle/oraInventory/logs/silentInstall2024-01-05_08-08-56PM.log' for more details.
 
 As a root user, execute the following script(s):
-        1. /u01/app/oracle/product/11.2.0/dbhome_1/root.sh
+        1. /u01/app/oracle/product/11.2.0/db_1/root.sh
 
 
 Successfully Setup Software.
@@ -307,12 +323,12 @@ Oracle Interim Patch Installer version 11.2.0.3.41
 Copyright (c) 2024, Oracle Corporation.  All rights reserved.
 
 
-Oracle Home       : /u01/app/oracle/product/11.2.0/dbhome_1
+Oracle Home       : /u01/app/oracle/product/11.2.0/db_1
 Central Inventory : /u01/app/oraInventory
-   from           : /u01/app/oracle/product/11.2.0/dbhome_1/oraInst.loc
+   from           : /u01/app/oracle/product/11.2.0/db_1/oraInst.loc
 OPatch version    : 11.2.0.3.41
 OUI version       : 11.2.0.4.0
-Log file location : /u01/app/oracle/product/11.2.0/dbhome_1/cfgtoollogs/opatch/opatch2024-01-05_09-34-17AM_1.log
+Log file location : /u01/app/oracle/product/11.2.0/db_1/cfgtoollogs/opatch/opatch2024-01-05_09-34-17AM_1.log
 
 Verifying environment and performing prerequisite checks...
 OPatch continues with these patches:   17478514  18031668  18522509  19121551  19769489  20299013  20760982  21352635  21948347  22502456  23054359  24006111  24732075  25869727  26609445  26392168  26925576  27338049  27734982  28204707  28729262  29141056  29497421  29913194  30298532  30670774  31103343  31537677  31983472  32328626  32758711  33128584  33477185
@@ -323,7 +339,7 @@ User Responded with: Y
 All checks passed.
 
 Please shutdown Oracle instances running out of this ORACLE_HOME on the local system.
-(Oracle Home = '/u01/app/oracle/product/11.2.0/dbhome_1')
+(Oracle Home = '/u01/app/oracle/product/11.2.0/db_1')
 
 
 Is the local system ready for patching? [y|n]
@@ -367,7 +383,7 @@ y
 User Responded with: Y
 Composite patch 33477185 successfully applied.
 OPatch Session completed with warnings.
-Log file location: /u01/app/oracle/product/11.2.0/dbhome_1/cfgtoollogs/opatch/opatch2024-01-05_20-35-55PM_1.log
+Log file location: /u01/app/oracle/product/11.2.0/db_1/cfgtoollogs/opatch/opatch2024-01-05_20-35-55PM_1.log
 
 OPatch completed with warnings.
 ```
@@ -385,12 +401,12 @@ Oracle Interim Patch Installer version 11.2.0.3.41
 Copyright (c) 2024, Oracle Corporation.  All rights reserved.
 
 
-Oracle Home       : /u01/app/oracle/product/11.2.0/dbhome_1
+Oracle Home       : /u01/app/oracle/product/11.2.0/db_1
 Central Inventory : /u01/app/oraInventory
-   from           : /u01/app/oracle/product/11.2.0/dbhome_1/oraInst.loc
+   from           : /u01/app/oracle/product/11.2.0/db_1/oraInst.loc
 OPatch version    : 11.2.0.3.41
 OUI version       : 11.2.0.4.0
-Log file location : /u01/app/oracle/product/11.2.0/dbhome_1/cfgtoollogs/opatch/opatch2024-01-05_09-45-11AM_1.log
+Log file location : /u01/app/oracle/product/11.2.0/db_1/cfgtoollogs/opatch/opatch2024-01-05_09-45-11AM_1.log
 
 Verifying environment and performing prerequisite checks...
 OPatch continues with these patches:   33991024
@@ -401,14 +417,14 @@ User Responded with: Y
 All checks passed.
 
 Please shutdown Oracle instances running out of this ORACLE_HOME on the local system.
-(Oracle Home = '/u01/app/oracle/product/11.2.0/dbhome_1')
+(Oracle Home = '/u01/app/oracle/product/11.2.0/db_1')
 
 
 Is the local system ready for patching? [y|n]
 y
 User Responded with: Y
 Backing up files...
-Applying interim patch '33991024' to OH '/u01/app/oracle/product/11.2.0/dbhome_1'
+Applying interim patch '33991024' to OH '/u01/app/oracle/product/11.2.0/db_1'
 
 Patching component oracle.rdbms.rsf, 11.2.0.4.0...
 
@@ -416,14 +432,14 @@ Patching component oracle.buildtools.rsf, 11.2.0.4.0...
 
 Patching component oracle.has.db, 11.2.0.4.0...
 Patch 33991024 successfully applied.
-Log file location: /u01/app/oracle/product/11.2.0/dbhome_1/cfgtoollogs/opatch/opatch2024-01-05_09-45-11AM_1.log
+Log file location: /u01/app/oracle/product/11.2.0/db_1/cfgtoollogs/opatch/opatch2024-01-05_09-45-11AM_1.log
 
 OPatch succeeded.
 ```
 最后，按补丁要标relink
 ```shell
 [oracle@oracle 33991024]$ $ORACLE_HOME/bin/relink all
-writing relink log to: /u01/app/oracle/product/11.2.0/dbhome_1/install/relink.log
+writing relink log to: /u01/app/oracle/product/11.2.0/db_1/install/relink.log
 [oracle@oracle 33991024]$ opatch lspatches
 33991024;11204CERT ON OL8: LINKING ERRORS DURING 11204 FOR DB INSTALL ON OL8.2
 33477185;Database Patch Set Update : 11.2.0.4.220118 (33477185)
