@@ -216,7 +216,7 @@ umask=022
 EOF
 ```
 >注：centos8 安装Oracle 19c需要添加环境变量
-解决 [INS-08101] Unexpected error while executing the action at state: 'supportedOSCheck'报错
+>解决 [INS-08101] Unexpected error while executing the action at state: 'supportedOSCheck'报错
 ```shell
 vi .bash_profile
 export CV_ASSUME_DISTID=OL7
