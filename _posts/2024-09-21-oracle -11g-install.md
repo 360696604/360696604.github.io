@@ -215,6 +215,10 @@ export THREADS_FLAG=native
 umask=022
 EOF
 ```
+>注：centos8 安装Oracle 19c需要添加环境变量
+>vi .bash_profile
+>export CV_ASSUME_DISTID=OL7
+
 
 #### 10.解压DB软件
 ```shell
