@@ -229,6 +229,10 @@ cd /soft
 unzip p13390677_112040_Linux-x86-64_1of7.zip
 unzip p13390677_112040_Linux-x86-64_2of7.zip
 ```
+>注：oracle 19c 解压到/u01/app/oracle/product/19.3.0/db_1
+```shell
+unzip LINUX.X64_193000_db_home.zip -d /u01/app/oracle/product/19.3.0/db_1/
+```
 
 #### 11.创建静默安装文件
 ```shell
